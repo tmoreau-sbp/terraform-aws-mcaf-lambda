@@ -14,9 +14,9 @@ locals {
 module "lambda_role" {
   count = var.execution_role_custom == null ? 1 : 0
 
- # source  = "github.com/tmoreau-sbp/terraform-aws-mcaf-role"
-  source  = "schubergphilis/mcaf-role/aws"
-  version = "~> 0.4.0"
+  source  = "github.com/tmoreau-sbp/terraform-aws-mcaf-role"
+ # source  = "schubergphilis/mcaf-role/aws"
+ # version = "~> 0.4.0"
 
   name                  = join("-", compact([var.execution_role.name_prefix, "LambdaRole", var.name]))
   create_policy         = var.execution_role.create_policy
